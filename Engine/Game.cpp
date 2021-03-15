@@ -68,5 +68,5 @@ void Game::ComposeFrame()
 	{
 		gfx.DrawLine( *i,*std::next( i ),Colors::White );
 	}
-	gfx.DrawLine( vtx.front(),vtx.back(),Colors::White );
+	gfx.DrawLine( vtx.front(),vtx.back(),Colors::Blue );
 }
