@@ -130,6 +130,16 @@ public:
 	{
 		return !(*this == rhs);
 	}
+
+	//ÓÃ%CrossProduct ÔËËã·û
+	_Vec3 operator %(const _Vec3 &rhs) const
+	{
+		return _Vec3(
+			y*rhs.z - z * rhs.y,
+			z*rhs.x - x*rhs.z,
+			x*rhs.y	- y*rhs.x
+		);
+	}
 public:
 	T z;
 };
