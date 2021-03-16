@@ -82,6 +82,19 @@ void Game::ComposeFrame()
 		Mat3::RotationX( theta_x ) *
 		Mat3::RotationY( theta_y ) *
 		Mat3::RotationZ( theta_z );
+	const std::vector<Color>  colors = {
+		Colors::Yellow,
+		Colors::Blue,
+		Colors::Cyan,
+		Colors::Green,
+		Colors::LightGray,
+		Colors::Magenta,
+		Colors::White,
+		Colors::Gray,
+		Colors::Green,
+		Colors::Red
+		};
+	
 	for( auto& v : triangles.vertices )
 	{
 		v *= rot;
@@ -92,6 +105,9 @@ void Game::ComposeFrame()
 		end = triangles.indices.cend();
 		i != end; std::advance( i,3 ) )
 	{
-		gfx.DrawTriangle( triangles.vertices[*i],triangles.vertices[*std::next( i )],triangles.vertices[*std::next( i,2 )],Colors::White );
+		int len = colors.size();
+		const int colorIndex = ((int)*i) % len;
+		auto color = colors[colorIndex];
+		gfx.DrawTriangle( triangles.vertices[*i],triangles.vertices[*std::next( i )],triangles.vertices[*std::next( i,2 )], color);
 	}
 }
