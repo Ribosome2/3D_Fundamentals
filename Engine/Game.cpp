@@ -106,7 +106,7 @@ void Game::ComposeFrame()
 		i != end; std::advance( i,3 ) )
 	{
 		int len = colors.size();
-		const int colorIndex = ((int)*i) % len;
+		const int colorIndex = *i % len;
 		auto color = colors[colorIndex];
 		gfx.DrawTriangle( triangles.vertices[*i],triangles.vertices[*std::next( i )],triangles.vertices[*std::next( i,2 )], color);
 	}
